@@ -1,0 +1,6 @@
+#!/bin/bash
+id=$(date +"%Y-%m-%d_%H:%M:%S")
+output="$HOME/Media/Tree/database/tree$id.csv"
+find $HOME/Media -type f -exec sh -c 'stats=$(stat -c "%.19y\t%.19w\t%.19z" "{}"); echo -e "$stats\t$(cksum "{}" | cut -d " " -f 1 | cut -b1-9)\t$(du -h "{}")"' \; > $output
+
+sed -i 's#/home/clyde/Media#..#g' $output
