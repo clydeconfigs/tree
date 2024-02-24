@@ -1,0 +1,7 @@
+#!/bin/bash
+
+test $# -lt 2 && echo "seechange [file#1] [file#2]" && exit 1
+
+databasepath=$HOME/Media/Tree/database/
+
+colordiff $databasepath/"$(ls $databasepath -1 --sort time | sed -n "$2"p)"  $HOME/Media/Tree/database/"$(ls $databasepath -1 --sort time | sed -n "$1"p)" | grep -P '.*\t.*' | grep -v Tree/database
