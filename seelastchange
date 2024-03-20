@@ -1,5 +1,0 @@
-#!/bin/bash
-
-databasepath=$HOME/Media/Tree/database/
-
-colordiff $databasepath/"$(ls $databasepath -1 --sort time | sed -n '2p')"  $HOME/Media/Tree/database/"$(ls $databasepath -1 --sort time | sed -n '1p')" | grep -P '.*\t.*' | grep -v Tree/database
