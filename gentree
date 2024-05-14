@@ -1,9 +1,9 @@
 #!/bin/bash
 
-where="$HOME/Media/Tree/database"
+where="$HOME/Media/Code/Tree/database"
 output="$where/tree.csv"
 
-time find $HOME/Media -type f -exec sh -c 'stats=$(stat -c "%.19y\t%.19w\t%.19z" "{}"); echo -e "$stats\t$(cksum "{}" | cut -d " " -f 1 | cut -b1-9)\t$(stat -c "%s\t%n" "{}")"' \; > $output
+time find $HOME/Media -type f -exec sh -c 'stats=$(stat -c "%.19y" "{}"); echo -e "$stats\t$(cksum "{}" | cut -d " " -f 1 | cut -b1-9)\t$(stat -c "%s\t%n" "{}")"' \; > $output
 
 sed -i 's#/home/clyde/Media#..#g' $output
 

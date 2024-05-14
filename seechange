@@ -1,7 +1,7 @@
 #!/bin/bash
 
-databasepath=$HOME/Media/Tree/database/
+databasepath=$HOME/Media/Code/Tree/database/
 
 cd $databasepath
 
-git diff HEAD^ HEAD
+git diff -U0 HEAD^ HEAD | grep -v git | grep -v ^@@ | colordiff
